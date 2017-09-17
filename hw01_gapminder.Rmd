@@ -1,0 +1,53 @@
+---
+title: "Gapminder Exploration"
+author: "Yidie Feng"
+date: "9/14/2017"
+output: github_document
+---
+
+```{r}
+library(tidyverse)
+library(gapminder)
+```
+
+Look at the basics of the data:
+```{r}
+gapminder
+head(gapminder)
+tail(gapminder)
+str(gapminder)
+ncol(gapminder)
+nrow(gapminder)
+dim(gapminder)
+```
+
+Get a sense of the data as a whole:
+```{r}
+summary(gapminder)
+glimpse(gapminder)
+```
+
+Explore "year" variable:
+```{r}
+min(gapminder$year)
+max(gapminder$year)
+```
+
+Explore "continent" variable:
+```{r}
+levels(gapminder$continent)
+barplot(table(gapminder$continent))
+```
+
+Explore "country" variable:
+```{r}
+table(gapminder$country)
+```
+
+Plot something about the data:
+```{r}
+plot(lifeExp ~ year, gapminder)
+plot(lifeExp ~ pop, gapminder)
+plot(gdpPercap ~ year, gapminder)
+```
+
