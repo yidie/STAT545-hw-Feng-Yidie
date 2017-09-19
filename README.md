@@ -11,7 +11,7 @@ Here is the 545 website: [Main STAT545 webpage](http://stat545.com)
 My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics at UBC. And now I am a new Master student in Statistics.
 
 #### Photo of Myself
-<img src="IMG_9783.JPG" height="400px" width="300px" />
+<img src="IMG_9783.JPG" height="400px" width="400px" />
 
 #### My Goal for STAT 545
 * Apply what I have learned from other statistics courses
