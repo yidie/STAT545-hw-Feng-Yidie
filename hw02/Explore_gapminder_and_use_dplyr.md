@@ -141,7 +141,7 @@ gapminder %>%
   ggplot(aes(x=year, y=gdpPercap)) + geom_point() + ggtitle("Scatterplot of GDP in China from 1952 to 2007") + xlab("Year") + ylab("GDP per capita")
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-9-1.png) This is a scatterplot of China's gdpPercap vs year. There is an overall incrasing trend. As time goes, the gdpPercap in China increases. And the biggest jump is from 2002 to 2007.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-9-1.png) - This is a scatterplot of China's gdpPercap vs year. There is an overall incrasing trend. As time goes, the gdpPercap in China increases. And the biggest jump is from 2002 to 2007.
 
 ``` r
 gapminder %>%
@@ -149,7 +149,7 @@ gapminder %>%
   ggplot(aes(x=year, y=gdpPercap, color=country)) + geom_point() + ggtitle("Scatterplot of GDP in China vs Canada from 1952 to 2007") + xlab("Year") + ylab("GDP per capita")
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-10-1.png) This plot compares the gdpPercap between Canada and China over the period of 1952-2007. We can see that both countries' gdp increase as time goes. But the gdp of Canada is higher than that of China in each year measured.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-10-1.png) - This plot compares the gdpPercap between Canada and China over the period of 1952-2007. We can see that both countries' gdp increase as time goes. But the gdp of Canada is higher than that of China in each year measured.
 
 ``` r
 gapminder %>%
@@ -157,7 +157,7 @@ gapminder %>%
   ggplot(aes(x=lifeExp)) + geom_density(aes(group=country, colour=country, fill=country), alpha=0.3) + ggtitle("Density Plots of LifeExp in China vs Canada")
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-11-1.png) This plot shows that the distribution of lifeExp in Canada is centered around 75, while the distribution of lifeExp in China is centered around 65 with a larger spread compared to that of Canada.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-11-1.png) - This plot shows that the distribution of lifeExp in Canada is centered around 75, while the distribution of lifeExp in China is centered around 65 with a larger spread compared to that of Canada.
 
 ``` r
 gapminder %>%
@@ -165,14 +165,14 @@ gapminder %>%
   ggplot(aes(x=lifeExp)) + geom_density(aes(group=country, colour=country, fill=country), alpha=0.3)
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-12-1.png) This is a plot I tried. It shows the desity plots of lifeExp for all the countries in continent "Americas". But it is **NOT** useful since there are too many countries to display. With the densities overlapping, it is not informative.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-12-1.png) - This is a plot I tried. It shows the desity plots of lifeExp for all the countries in continent "Americas". But it is **NOT** useful since there are too many countries to display. With the densities overlapping, it is not informative.
 
 ``` r
 gapminder %>%
   ggplot(aes(x=continent, y=lifeExp, fill=continent)) + geom_boxplot() + ggtitle("Boxplots of LifeExp of Different Continents")
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-13-1.png) This one shows the boxplots of lifeExp for different continents. We observe that Oceania has the highest mean lifeExp, while Afica has the lowest mean lifeExp. And Asia has the largest variation in lifeExp among the five continents. Moreover, Europe has a lot of outliers.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-13-1.png) - This one shows the boxplots of lifeExp for different continents. We observe that Oceania has the highest mean lifeExp, while Afica has the lowest mean lifeExp. And Asia has the largest variation in lifeExp among the five continents. Moreover, Europe has a lot of outliers.
 
 ``` r
 gapminder %>%
@@ -181,4 +181,4 @@ gapminder %>%
   ggplot(aes(x=lifeExp, y=gdpPercap, colour=country)) + geom_point() + ggtitle("GDP vs lifeExp in Spain and Brazil from 1997 to 2007")
 ```
 
-![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-14-1.png) I created a subset of the data using filter and select. And then I plot the data points in my subset. It shows that the gdp tends to increase as lifeExp increase in these three years for both countries. And Spain has larger gdpPercap and lifeExp than Brazil in these three years.
+![](Explore_gapminder_and_use_dplyr_files/figure-markdown_github/unnamed-chunk-14-1.png) - I created a subset of the data using filter and select. And then I plot the data points in my subset. It shows that the gdp tends to increase as lifeExp increase in these three years for both countries. And Spain has larger gdpPercap and lifeExp than Brazil in these three years.

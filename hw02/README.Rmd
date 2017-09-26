@@ -8,7 +8,7 @@ output:
 ---
 ### Navigation
 
-This is the folder for hw02 in STAT545-hw01-Feng-Yidie repo. You can go to [here](http://stat545.com) to find my exploration of gapminder and dplyr.
+This is the folder for hw02 in STAT545-hw01-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw02/Explore_gapminder_and_use_dplyr.md) to find my exploration of gapminder and dplyr.
 
 ### Process Report
 - All the work was done locally in R studio and then commit, pull, push to github.
