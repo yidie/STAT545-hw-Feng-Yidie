@@ -4,8 +4,8 @@ output: html_document
 
 ### Welcome to Yidie's repo
 This is the repository of Yidie Feng for STAT545 HW.
-HW01 is up there
-Here is [HW02](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw02). 
+- HW01 is up there
+- Here is [HW02](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw02). 
 
 ### Description about Myself
 My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics at UBC. And now I am a new Master student in Statistics.
@@ -19,7 +19,7 @@ My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics
 * Get more pratice with coding in R
 * Work with git and github with more confidence
 
-#### Report Process
+### Report Process
 1. I made these changes locally in R studio.
 2. I save, commit, pull and push to github regularly.
 3. Reflection 
