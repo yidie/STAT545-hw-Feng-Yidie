@@ -1,19 +1,19 @@
 ---
 output: html_document
 ---
-### STAT545-hw01-Feng-Yidie
 
-#### Welcome to Yidie's repo
-This is the repository of Yidie Feng for STAT545 HW1.
-Here is the 545 website: [Main STAT545 webpage](http://stat545.com)
+### Welcome to Yidie's repo
+This is the repository of Yidie Feng for STAT545 HW.
+HW01 is up there
+Here is [HW02](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw02). 
 
-#### Description about Myself
+### Description about Myself
 My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics at UBC. And now I am a new Master student in Statistics.
 
-#### Photo of Myself
+### Photo of Myself
 <img src="IMG_9783.JPG" height="400px" width="400px" />
 
-#### My Goal for STAT 545
+### My Goal for STAT 545
 * Apply what I have learned from other statistics courses
 * Improve my communication skills
 * Get more pratice with coding in R
