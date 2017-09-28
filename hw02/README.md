@@ -1,6 +1,5 @@
-# README
-Yidie Feng  
-9/24/2017  
+## Welcome to Yidie's hw02 folder
+
 ### Navigation
 
 This is the folder for hw02 in STAT545-hw01-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw02/Explore_gapminder_and_use_dplyr.md) to find my exploration of gapminder and dplyr.
