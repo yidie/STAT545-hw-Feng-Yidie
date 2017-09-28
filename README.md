@@ -1,7 +1,3 @@
----
-output: html_document
----
-
 ### Welcome to Yidie's repo
 This is the repository of Yidie Feng for STAT545 HW.
 - [HW01](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw01)
