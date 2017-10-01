@@ -7,7 +7,7 @@ output: html_document
 
 ### Navigation
 
-This is the folder for hw03 in STAT545-hw-Feng-Yidie repo. You can go to [here]() to find out what I have done.
+This is the folder for hw03 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw03/hw03_use_dplyr_ggplot_to_manipulate_and_explore_data.md) to find out what I have done.
 
 ### Process Report
 - All the work was done locally in R studio and then commit, pull, push to github. I feel comfortable with the workflow now.

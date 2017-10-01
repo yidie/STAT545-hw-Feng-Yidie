@@ -23,6 +23,7 @@ a <- gapminder %>%
 ```{r results = 'asis'}
 knitr::kable(a)
 ```
+
 From the table, we know that Aisa has the highest max_gdp and Africa has the lowest max_gdp. Oceania has the highest min_gdp and Africa has the lowest min_gdp.
 
 - Plot a graph
@@ -34,6 +35,7 @@ ggplot(a, aes(min_gdp, max_gdp)) +
        y="Maximum GDP per capita",
        title="Max and Min GdpPercap for Each Continent")
 ```
+
 From the graph, Asia outperforms other continents because it has the highest max_gdp and a relatively low min_gdp. While Africa has both lowest max_gdp and lowest min_gdp. It shows the same thing as that in the table but from a visual perspective.
 
 
@@ -51,6 +53,7 @@ b <- gapminder %>%
 ```{r results = 'asis'}
 knitr::kable(b)
 ```
+
 The table shows that Asia has a large standard deviation, which means the spread of gdpPercap in Asia is large. Americas and Oceania have similiar spread. Africa has the smallest spread in terms of gdpPercap.
 
 - A boxplot of gdpPercap for each continent
@@ -60,6 +63,7 @@ ggplot(gapminder, aes(x=continent, y=gdpPercap, fill=continent)) +
   labs(y="GDP per capita",
        title="Boxplot of GdpPercap for Each Continent")
 ```
+
 From the graph, indeed, Asia has the most variation given that there are a lot of outliers.
 
 
@@ -76,6 +80,7 @@ c <- gapminder %>%
 ```{r results = 'asis'}
 knitr::kable(c)
 ```
+
 We observe that the lifeExp increases over time for all the continents.
 
 - Make plots
@@ -85,6 +90,7 @@ ggplot(c, aes(year, mean_lifeExp, colour=continent)) +
   labs(y="Mean of Life Expectancy",
     title = "Change of mean_lifeExp over Time on Different Continents")
 ```
+
 This graph plots the mean_lifeExp over time for all the continents and connect the points over time for each continent. It shows that evry continent's mean_lifeExp is increasing over time. It is interesting that the mean_lifeExp of Africa stays around the same value from year 1990 to 2000, shown by the flatness of the graph during that period.  
 
 ```{r}
@@ -93,5 +99,6 @@ ggplot(gapminder, aes(year, lifeExp, colour=continent)) +
   labs(y="Life Expectancy",
     title = "Change of lifeExp over Time on Different Continents")
 ```
+
 This graph uses the geom_smooth function and fits a linear model between year and life_Exp for each continent. Compared to the previous graph, every line is smooth here. But it shows the same trend for each continent: lifeExp is incresing over time.
 
