@@ -1,0 +1,16 @@
+---
+title: "README"
+author: "Yidie Feng"
+date: "9/30/2017"
+output: html_document
+---
+
+### Navigation
+
+This is the folder for hw03 in STAT545-hw-Feng-Yidie repo. You can go to [here]() to find out what I have done.
+
+### Process Report
+- All the work was done locally in R studio and then commit, pull, push to github.
+- For all three tasks I have done, I first use dplyr functions to get the information I want and give a name to the output dataframe. Then I call this dataframe when I make tables and graphs using ggplot.  
+- I use labs function to label all the graphs properly.
+- In task 3, I compared geom_line and geom_smooth function. I found that geom_smooth is more convenient when you want to see what the trend looks like, as it automatically smoothes over the data points to give you a line. While for geom_line, I need to first compute the mean across all the countries and then connect them using geom_line.

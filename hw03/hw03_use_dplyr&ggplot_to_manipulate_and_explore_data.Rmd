@@ -1,0 +1,97 @@
+---
+title: "hw03_use_dplyr&ggplot_to_manipulate_and_explore_data"
+author: "Yidie Feng"
+date: "9/30/2017"
+output: github_document
+---
+
+```{r}
+library(gapminder)
+library(tidyverse)
+```
+
+### Task1: Get the maximum and minimum of GDP per capita for all continents
+
+- Get the max and min gdpPercap for all continents 
+```{r}
+a <- gapminder %>%
+  group_by(continent) %>%
+  summarise(max_gdp = max(gdpPercap), min_gdp = min(gdpPercap))
+```
+
+- Make a table
+```{r results = 'asis'}
+knitr::kable(a)
+```
+From the table, we know that Aisa has the highest max_gdp and Africa has the lowest max_gdp. Oceania has the highest min_gdp and Africa has the lowest min_gdp.
+
+- Plot a graph
+```{r}
+ggplot(a, aes(min_gdp, max_gdp)) + 
+  geom_point(aes(colour = continent)) +
+  theme_bw() +
+  labs(x="Minimum GDP per capita",
+       y="Maximum GDP per capita",
+       title="Max and Min GdpPercap for Each Continent")
+```
+From the graph, Asia outperforms other continents because it has the highest max_gdp and a relatively low min_gdp. While Africa has both lowest max_gdp and lowest min_gdp. It shows the same thing as that in the table but from a visual perspective.
+
+
+### Task 2: Look at the spread of GDP per capita within the continents
+
+- Get the gdpPercap data for each continent
+```{r}
+b <- gapminder %>% 
+  select(gdpPercap, continent) %>%
+  group_by(continent) %>%
+  summarise(sd_gdp = sd(gdpPercap))
+```
+
+- Make a table
+```{r results = 'asis'}
+knitr::kable(b)
+```
+The table shows that Asia has a large standard deviation, which means the spread of gdpPercap in Asia is large. Americas and Oceania have similiar spread. Africa has the smallest spread in terms of gdpPercap.
+
+- A boxplot of gdpPercap for each continent
+```{r}
+ggplot(gapminder, aes(x=continent, y=gdpPercap, fill=continent)) + 
+  geom_boxplot() +
+  labs(y="GDP per capita",
+       title="Boxplot of GdpPercap for Each Continent")
+```
+From the graph, indeed, Asia has the most variation given that there are a lot of outliers.
+
+
+### Task 3: How is life expectancy changing over time on different continents?
+
+- Compute the lifeExp averaged over all the countries of each continent in each year
+```{r}
+c <- gapminder %>%
+  group_by(continent, year) %>%
+  summarise(mean_lifeExp = mean(lifeExp))
+```
+
+- Make a table
+```{r results = 'asis'}
+knitr::kable(c)
+```
+We observe that the lifeExp increases over time for all the continents.
+
+- Make plots
+```{r}
+ggplot(c, aes(year, mean_lifeExp, colour=continent)) + 
+  geom_line() +
+  labs(y="Mean of Life Expectancy",
+    title = "Change of mean_lifeExp over Time on Different Continents")
+```
+This graph plots the mean_lifeExp over time for all the continents and connect the points over time for each continent. It shows that evry continent's mean_lifeExp is increasing over time. It is interesting that the mean_lifeExp of Africa stays around the same value from year 1990 to 2000, shown by the flatness of the graph during that period.  
+
+```{r}
+ggplot(gapminder, aes(year, lifeExp, colour=continent)) + 
+  geom_smooth(method="lm", se=FALSE) +
+  labs(y="Life Expectancy",
+    title = "Change of lifeExp over Time on Different Continents")
+```
+This graph uses the geom_smooth function and fits a linear model between year and life_Exp for each continent. Compared to the previous graph, every line is smooth here. But it shows the same trend for each continent: lifeExp is incresing over time.
+
