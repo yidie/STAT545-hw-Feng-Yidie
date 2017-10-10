@@ -44,7 +44,7 @@ usual_shape <- gapminder %>%
   summarise(mean_lifeExp = mean(lifeExp))
 ```
 
--   This is the reshaped form by using 'spread()' function.
+-   This is the reshaped form by using `spread()` function.
 
 ``` r
 re_shape <- usual_shape %>%
@@ -70,7 +70,7 @@ knitr::kable(re_shape)
 
 -   Is there a plot that is easier to make using the reshaped data versus the usual form?
 
-1.  Yes. For example, we can easily plot the lifeExp over time for a certain continent by simply specifying the x axis to be the year, and y axis to be the continent we are interested in. While if the data is in the usual form, we will need to 'filter()' the continent we want before plotting.
+1.  Yes. For example, we can easily plot the lifeExp over time for a certain continent by simply specifying the x axis to be the year, and y axis to be the continent we are interested in. While if the data is in the usual form, we will need to `filter()` the continent we want before plotting.
 
 ``` r
 ggplot(re_shape, aes(year, Asia)) +
@@ -132,7 +132,7 @@ gapminder2
     ## 4 New Zealand   southern
     ## 5       Chile   southern
 
--   We can see that 'left\_join()' keeps everything in gapminder1 and add hemisphere column to it. Since there is no hemisphere for Mali in gapminder2, it puts NA there.
+-   We can see that `left_join()` keeps everything in gapminder1 and add hemisphere column to it. Since there is no hemisphere for Mali in gapminder2, it puts NA there.
 
 ``` r
 left_join(gapminder1,gapminder2)
@@ -152,7 +152,7 @@ left_join(gapminder1,gapminder2)
     ## 4        Mali    Africa  1957  35.307  4241884   490.3822         NA
     ## 5 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern
 
--   We can see that 'inner\_join()' returns all the information possessed by the common countries appeared in both dataframes. Both dataframes have "Afghanistan", "Costa Rica", "Greece" and "New Zealand". So it returns these countries with the corresponding information from gapminder1 and gapminder2 .
+-   We can see that `inner_join()` returns all the information possessed by the common countries appeared in both dataframes. Both dataframes have "Afghanistan", "Costa Rica", "Greece" and "New Zealand". So it returns these countries with the corresponding information from gapminder1 and gapminder2 .
 
 ``` r
 inner_join(gapminder1,gapminder2)
@@ -171,7 +171,7 @@ inner_join(gapminder1,gapminder2)
     ## 3      Greece    Europe  2007  79.483 10706290 27538.4119   northern
     ## 4 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern
 
--   We can see that 'full\_join()' returns all the information in both dataframes.
+-   We can see that `full_join()` returns all the information in both dataframes.
 
 ``` r
 full_join(gapminder1,gapminder2)
@@ -192,7 +192,7 @@ full_join(gapminder1,gapminder2)
     ## 5 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern
     ## 6       Chile        NA    NA      NA       NA         NA   southern
 
--   We can see that 'semi\_join()' returns only the information in gapminder1 where there are matching countries in gapminder2. Only "Afghanistan", "Costa Rica", "Greece" and "New Zealand" are matched in gapminder2. So it returns the information for these countries from gapminder1.
+-   We can see that `semi_join()` returns only the information in gapminder1 where there are matching countries in gapminder2. Only "Afghanistan", "Costa Rica", "Greece" and "New Zealand" are matched in gapminder2. So it returns the information for these countries from gapminder1.
 
 ``` r
 semi_join(gapminder1,gapminder2)
@@ -208,7 +208,7 @@ semi_join(gapminder1,gapminder2)
     ## 3      Greece    Europe  2007  79.483 10706290 27538.4119
     ## 4 New Zealand   Oceania  1987  74.320  3317166 19007.1913
 
--   We can see that 'anti\_join()' returns the information in gapminder1 where there are no matching in gapminder2. "Mali" is not present in gapminder2. So it returns Mali's information from gapminder1.
+-   We can see that `anti_join()` returns the information in gapminder1 where there are no matching in gapminder2. "Mali" is not present in gapminder2. So it returns Mali's information from gapminder1.
 
 ``` r
 anti_join(gapminder1,gapminder2)

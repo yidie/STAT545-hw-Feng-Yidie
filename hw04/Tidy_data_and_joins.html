@@ -58,7 +58,7 @@ body {
 <span class="st">  </span><span class="kw">group_by</span>(year,continent) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_lifeExp =</span> <span class="kw">mean</span>(lifeExp))</code></pre>
 <ul>
-<li>This is the reshaped form by using 'spread()' function.</li>
+<li>This is the reshaped form by using <code>spread()</code> function.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">re_shape &lt;-<span class="st"> </span>usual_shape %&gt;%
 <span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span>continent, <span class="dt">value=</span>mean_lifeExp)
@@ -178,7 +178,7 @@ knitr::<span class="kw">kable</span>(re_shape)</code></pre>
 <li>Is there a plot that is easier to make using the reshaped data versus the usual form?</li>
 </ul>
 <ol>
-<li>Yes. For example, we can easily plot the lifeExp over time for a certain continent by simply specifying the x axis to be the year, and y axis to be the continent we are interested in. While if the data is in the usual form, we will need to 'filter()' the continent we want before plotting.</li>
+<li>Yes. For example, we can easily plot the lifeExp over time for a certain continent by simply specifying the x axis to be the year, and y axis to be the continent we are interested in. While if the data is in the usual form, we will need to <code>filter()</code> the continent we want before plotting.</li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(re_shape, <span class="kw">aes</span>(year, Asia)) +
 <span class="st">  </span><span class="kw">geom_point</span>() +
@@ -226,7 +226,7 @@ gapminder2</code></pre>
 ## 4 New Zealand   southern
 ## 5       Chile   southern</code></pre>
 <ul>
-<li>We can see that 'left_join()' keeps everything in gapminder1 and add hemisphere column to it. Since there is no hemisphere for Mali in gapminder2, it puts NA there.</li>
+<li>We can see that <code>left_join()</code> keeps everything in gapminder1 and add hemisphere column to it. Since there is no hemisphere for Mali in gapminder2, it puts NA there.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(gapminder1,gapminder2)</code></pre>
 <pre><code>## Joining, by = &quot;country&quot;
@@ -243,7 +243,7 @@ gapminder2</code></pre>
 ## 4        Mali    Africa  1957  35.307  4241884   490.3822         NA
 ## 5 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern</code></pre>
 <ul>
-<li>We can see that 'inner_join()' returns all the information possessed by the common countries appeared in both dataframes. Both dataframes have &quot;Afghanistan&quot;, &quot;Costa Rica&quot;, &quot;Greece&quot; and &quot;New Zealand&quot;. So it returns these countries with the corresponding information from gapminder1 and gapminder2 .</li>
+<li>We can see that <code>inner_join()</code> returns all the information possessed by the common countries appeared in both dataframes. Both dataframes have &quot;Afghanistan&quot;, &quot;Costa Rica&quot;, &quot;Greece&quot; and &quot;New Zealand&quot;. So it returns these countries with the corresponding information from gapminder1 and gapminder2 .</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inner_join</span>(gapminder1,gapminder2)</code></pre>
 <pre><code>## Joining, by = &quot;country&quot;
@@ -259,7 +259,7 @@ gapminder2</code></pre>
 ## 3      Greece    Europe  2007  79.483 10706290 27538.4119   northern
 ## 4 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern</code></pre>
 <ul>
-<li>We can see that 'full_join()' returns all the information in both dataframes.</li>
+<li>We can see that <code>full_join()</code> returns all the information in both dataframes.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">full_join</span>(gapminder1,gapminder2)</code></pre>
 <pre><code>## Joining, by = &quot;country&quot;
@@ -277,7 +277,7 @@ gapminder2</code></pre>
 ## 5 New Zealand   Oceania  1987  74.320  3317166 19007.1913   southern
 ## 6       Chile        NA    NA      NA       NA         NA   southern</code></pre>
 <ul>
-<li>We can see that 'semi_join()' returns only the information in gapminder1 where there are matching countries in gapminder2. Only &quot;Afghanistan&quot;, &quot;Costa Rica&quot;, &quot;Greece&quot; and &quot;New Zealand&quot; are matched in gapminder2. So it returns the information for these countries from gapminder1.</li>
+<li>We can see that <code>semi_join()</code> returns only the information in gapminder1 where there are matching countries in gapminder2. Only &quot;Afghanistan&quot;, &quot;Costa Rica&quot;, &quot;Greece&quot; and &quot;New Zealand&quot; are matched in gapminder2. So it returns the information for these countries from gapminder1.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">semi_join</span>(gapminder1,gapminder2)</code></pre>
 <pre><code>## Joining, by = &quot;country&quot;
@@ -290,7 +290,7 @@ gapminder2</code></pre>
 ## 3      Greece    Europe  2007  79.483 10706290 27538.4119
 ## 4 New Zealand   Oceania  1987  74.320  3317166 19007.1913</code></pre>
 <ul>
-<li>We can see that 'anti_join()' returns the information in gapminder1 where there are no matching in gapminder2. &quot;Mali&quot; is not present in gapminder2. So it returns Mali's information from gapminder1.</li>
+<li>We can see that <code>anti_join()</code> returns the information in gapminder1 where there are no matching in gapminder2. &quot;Mali&quot; is not present in gapminder2. So it returns Mali's information from gapminder1.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anti_join</span>(gapminder1,gapminder2)</code></pre>
 <pre><code>## Joining, by = &quot;country&quot;
