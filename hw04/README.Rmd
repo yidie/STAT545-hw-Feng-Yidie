@@ -1,9 +1,9 @@
 ### Navigation
 
-This is the folder for hw04 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw03/hw03_use_dplyr_ggplot_to_manipulate_and_explore_data.md) to find my work on "Tidy data and joins".
+This is the folder for hw04 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw04/Tidy_data_and_joins.md) to find my work on "Tidy data and joins".
 
 ### Process Report
-- I did everthing locally in R studio and then commit/pull/push to github.
+- I did everything locally in R studio and then commit/pull/push to github.
 - I found [this](http://www.dummies.com/programming/r/how-to-create-a-data-frame-from-scratch-in-r/) very helpful on how to create a dataframe from scratch.
 - This homework helps me enhance my understanding of different join functions because I get to experiment with two dataframes and see what is going on in each case.
 - Data reshaping is a very useful technique before we want to explore the data.
