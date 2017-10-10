@@ -1,0 +1,99 @@
+---
+title: "Tidy data and joins"
+author: "Yidie Feng"
+date: "10/9/2017"
+output: github_document
+---
+
+```{r}
+library(gapminder)
+library(tidyverse)
+library(ggplot2)
+```
+
+### General data reshaping and relationship to aggregation
+
+Activity: Compute some measure of life expectancy (mean? median? min? max?) for all possible combinations of continent and year. Reshape that to have one row per year and one variable for each continent.
+
+- This is the usual form we get.
+```{r}
+usual_shape <- gapminder %>%
+  group_by(year,continent) %>%
+  summarise(mean_lifeExp = mean(lifeExp))
+```
+
+- This is the reshaped form by using 'spread()' function.
+```{r}
+re_shape <- usual_shape %>%
+  spread(key=continent, value=mean_lifeExp)
+
+knitr::kable(re_shape)
+```
+
+- Is there a plot that is easier to make using the reshaped data versus the usual form? 
+
+1. Yes. For example, we can easily plot the lifeExp over time for a certain continent by simply specifying the x axis to be the year, and y axis to be the continent we are interested in. While if the data is in the usual form, we will need to 'filter()' the continent we want before plotting.  
+```{r}
+ggplot(re_shape, aes(year, Asia)) +
+  geom_point() +
+  theme_bw() +
+  labs(x="Year",
+       y="Life Expectancy",
+       title="Change of Life Expectancy over Time in Aisa")
+```
+
+2. We can also plot the change of lifeExp over time between two continents by specifying, for example, the x axis to be Americas and y axis to be Europe. But I don't think this is a good way to do comparison. Because in the usual form, we can plot the continents we want to compare on the same graph but with different color, which is better for visualization than using the reshaped data.
+```{r}
+ggplot(re_shape, aes(Americas, Europe)) +
+  geom_point() +
+  theme_bw() +
+  labs(x="Life Expectancy in Americas",
+       y="Life Expectancy in Europe",
+       title="Change of Life Expectancy over Time in Americas vs Europe")
+```
+
+### Join, merge, look up
+
+Activity: Create a second data frame, complementary to Gapminder. Join this with (part of) Gapminder using a dplyr join function and make some observations about the process and result. Explore the different types of joins.
+
+- Select five rows from gapminder dataset. 
+```{r}
+gapminder1<-gapminder[c(1,350,600,950,1100),]
+gapminder1
+```
+
+- Create a new dataframe.
+```{r}
+country<-c("Afghanistan","Costa Rica","Greece","New Zealand","Chile")
+hemisphere<-c("northern","northern","northern","southern","southern")
+gapminder2<-data.frame(country,hemisphere)
+gapminder2
+```
+
+- We can see that 'left_join()' keeps everything in gapminder1 and add hemisphere column to it. Since there is no hemisphere for Mali in gapminder2, it puts NA there.
+```{r}
+left_join(gapminder1,gapminder2)
+```
+
+- We can see that 'inner_join()' returns all the information possessed by the common countries appeared in both dataframes. Both dataframes have "Afghanistan", "Costa Rica", "Greece" and "New Zealand". So it returns these countries with the corresponding information from gapminder1 and gapminder2 .  
+```{r}
+inner_join(gapminder1,gapminder2)
+```
+
+- We can see that 'full_join()' returns all the information in both dataframes.
+```{r}
+full_join(gapminder1,gapminder2)
+```
+
+- We can see that 'semi_join()' returns only the information in gapminder1 where there are matching countries in gapminder2. Only "Afghanistan", "Costa Rica", "Greece" and "New Zealand" are matched in gapminder2. So it returns the information for these countries from gapminder1.  
+```{r}
+semi_join(gapminder1,gapminder2)
+```
+
+- We can see that 'anti_join()' returns the information in gapminder1 where there are no matching in gapminder2. "Mali" is not present in gapminder2. So it returns Mali's information from gapminder1.
+```{r}
+anti_join(gapminder1,gapminder2)
+```
+
+Note: My process report is in README.
+
