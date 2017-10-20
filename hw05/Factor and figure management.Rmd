@@ -199,6 +199,6 @@ Embed the two figures:
 ![Plot 1](p1.png)
 ![Plot 2](p2.png)
 
-NOTE: Process report is [here]().
+NOTE: Process report is [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw05/README.md).
 
 
