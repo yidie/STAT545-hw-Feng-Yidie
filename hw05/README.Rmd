@@ -7,7 +7,7 @@ output: github_document
 
 ### Navigation
 
-This is the folder for hw05 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw04/Tidy_data_and_joins.md) to find my work on "Factor and figure management".
+This is the folder for hw05 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw05/Factor_and_figure_management.md) to find my work on "Factor and figure management".
 
 ### Process Report
 - [This](http://stat545.com/block029_factors.html) is very helpful on reordering factors.

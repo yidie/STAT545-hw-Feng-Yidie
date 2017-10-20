@@ -191,7 +191,7 @@ p2<-gapminder %>%
 
 If I want to save p1, I will need to specify "plot=" argument in `ggsave()` because by default it will save the last plot display which is p2. There are also arguments like width/height/dpi that we can specify.
 ```{r}
-ggsave("p2.png", width=40, height=40, dpi=400, )
+ggsave("p2.png", width=6, height=5, dpi=400, )
 ggsave("p1.png", plot=p1)
 ```
 
