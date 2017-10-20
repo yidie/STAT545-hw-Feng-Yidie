@@ -5,7 +5,7 @@ Yidie Feng
 
 ### Navigation
 
-This is the folder for hw05 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw04/Tidy_data_and_joins.md) to find my work on "Factor and figure management".
+This is the folder for hw05 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw05/Factor_and_figure_management.md) to find my work on "Factor and figure management".
 
 ### Process Report
 
