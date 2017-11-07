@@ -1,0 +1,322 @@
+---
+title: "hw06"
+author: "Yidie Feng"
+date: "11/4/2017"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(stringr)
+library(stringi)
+library(dplyr)
+library(gapminder)
+```
+
+###Topic 1: Character Data
+
+####14.2.5 Exercises
+- In code that doesn’t use stringr, you’ll often see paste() and paste0(). What’s the difference between the two functions? What stringr function are they equivalent to? How do the functions differ in their handling of NA?
+
+The difference is that `paste()` has default argument of sep=" ". There will be a space between the onjects we want to concatenate. While the argument spe by default for `paste0()` is "".  
+```{r}
+paste("Chi", "na")
+paste0("Chi", "na")
+```
+
+They are equivalent to `str_c()` stringr function.
+```{r}
+str_c("Chi", "na")
+```
+
+We can see that as long as there is a missing value in `str_c()`, it returns a missing value. However, paste functions will convert NA to a string "NA".
+```{r}
+str_c("a", NA)
+paste("a", NA)
+paste0("a", NA)
+```
+
+- In your own words, describe the difference between the sep and collapse arguments to str_c().
+sep specifies what will be inserted between every _term_. If we specify collapse, it will return a character vector of length 1 and insert the thing we specified between every _result_.
+```{r}
+x <- c("Apple", "Banana", "Pear")
+
+str_c("a", x, "c", sep = "")
+str_c("a", x, "c", sep = "-")
+
+str_c("a", x, "c")
+str_c("a", x, "c", collapse = "")
+str_c("a", x, "c", collapse = "=")
+```
+
+
+- Use str_length() and str_sub() to extract the middle character from a string. What will you do if the string has an even number of characters?
+If it has an odd number of characters, I will choose the ceiling of the length/2.
+If it has an even number of characters. I will just choose length/2, which is the same as its ceiling.
+So ceiling of length/2 will work in both cases.
+```{r}
+l<-ceiling(str_length(x)/2)
+str_sub(x,l,l)
+```
+
+- What does str_trim() do? What’s the opposite of str_trim()?
+It trims the whitespace from start and end of string. The side argument controls which side you want to remove whitespace.
+```{r}
+str_trim(" a ", side = "both")
+str_trim(" a ", side = "left")
+str_trim(" a ", side = "right")
+```
+
+The opposite is `str_pad()`, which adds white space.
+```{r}
+str_pad("a", width=2, side = "left")
+```
+
+
+- Write a function that turns (e.g.) a vector c("a", "b", "c") into the string a, b, and c. Think carefully about what it should do if given a vector of length 0, 1, or 2.
+```{r}
+v_to_s<-function(v) {
+  l<-length(v)
+  if (l>1) {
+    part1<-str_c(v[1:l-1], collapse=", ")
+    part2<-str_c(part1, v[l], sep=", and ")
+    part2
+  }
+  else {
+    v
+  }
+}
+
+v_to_s(c(""))
+v_to_s(c("a"))
+v_to_s(c("a","b"))
+v_to_s(c("a","b","c"))
+v_to_s(c("a","b","c","d"))
+```
+
+####14.3.1.1 Exercises
+
+- What patterns will the regular expression \..\..\.. match? How would you represent it as a string?
+It will match any patterns that are a dot followed by anything, a dot followed by anything, a dot followed by anything. 
+
+####14.3.2.1 Exercises
+
+- How would you match the literal string "$^$"?
+Remember that we need to put double \ in front of $ and ^ to escape them in order to match a literal $ and a literal ^.
+```{r}
+str_view(c("a$^$", "b$^$b"),"\\$\\^\\$")
+```
+
+- Given the corpus of common words in stringr::words, create regular expressions that find all words that:
+
+Start with “y”. "^" means the start of the string.
+```{r}
+str_view(stringr::words, "^y", match = T)
+```
+
+End with “x”. "$" means the end of the string
+```{r}
+str_view(stringr::words, "x$", match = T)
+```
+
+Are exactly three letters long. "^" means the start of the string and "$" means the end of the string. Three dots mean that there can be any three characters. 
+```{r}
+str_view(stringr::words, "^...$", match = T)
+```
+
+Have seven letters or more. Put seven dots to ensure that there are at least seven letters.
+```{r}
+str_view(stringr::words, ".......", match = T)
+```
+
+####14.3.3.1 Exercises
+
+- Create regular expressions to find all words that:
+
+Start with a vowel. "^[aeiou]" means starting with a or e or i or o or u.
+```{r}
+str_view(stringr::words, "^[aeiou]", match = T)
+```
+
+That only contain consonants. "[^aeiou]" means starting with anything except a or e or i or o or u.
+```{r}
+str_view(stringr::words, "[^aeiou]", match = T)
+```
+
+End with ed, but not with eed. 
+```{r}
+str_view(stringr::words, "[^e]ed$", match = T)
+```
+
+End with ing or ise. Put brackets to group things properly.
+```{r}
+str_view(stringr::words, "i(ng)|(se)$", match = T)
+```
+
+- Is “q” always followed by a “u”? In stringr::words, yes. Because we cannot find a match with q followed by not u.
+```{r}
+str_view(stringr::words, "q[^u]", match = TRUE)
+```
+
+- Write a regular expression that matches a word if it’s probably written in British English, not American English. Here, I am using some common differences between British and American English, such as ending with "-our", "-re" or "-yse" in British English.
+```{r}
+str_view(stringr::words, "our$|re$|yse$", match = TRUE)
+```
+
+- Create a regular expression that will match telephone numbers as commonly written in your country. Here is what a Canadian phone number looks like: three digits-three digits-four digits.
+```{r}
+t<-c("111-222-3333", "111-1111-1111")
+str_view(t, "\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d")
+```
+
+####14.3.4.1 Exercises
+
+- Describe the equivalents of ?, +, * in {m,n} form.
+?  {0,1}  0 or 1
++  {1,}   1 or more   
+*  {0,}   0 or more
+
+- Describe in words what these regular expressions match: (read carefully to see if I’m using a regular expression or a string that defines a regular expression.)
+
+^.*$   It will match any string with length from 0 to infinity.  
+"\\{.+\\}"   It will match strings that have curly braces around it and with length of at least 1. 
+\d{4}-\d{2}-\d{2}   It will match strings that have pattern like this: any four digits-any two digits-any two digits
+"\\\\{4}"   It will match strings that have four backslashes 
+
+####14.3.5.1 Exercises
+- Construct regular expressions to match words that:
+
+Start and end with the same character. "^(.)" means start with any character. ".*" means there can be any number of any characters in the middle. "\\1$" means repeat the same character as in (.) at the end.
+```{r}
+str_view(words, "^(.).*\\1$", match = T)
+```
+
+Contain a repeated pair of letters (e.g. “church” contains “ch” repeated twice.). "(..)" is the pair of letters we wan to repeat. ".*" means we can have any number of any characters. "\\1" will repeat what we have in "(..)". 
+```{r}
+str_view(words, "(..).*\\1", match = T)
+```
+
+Contain one letter repeated in at least three places (e.g. “eleven” contains three “e”s.)
+"(.).*\\1.*\\1" means the one letter we want to repeat, followed by anything, followed by the repeat, followed by anything, followd by the repeat. Then we will have that one letter repeating at least three times.
+```{r}
+str_view(words, "(.).*\\1.*\\1", match = T)
+```
+
+####14.4.2 Exercises
+
+- For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple str_detect() calls.
+
+Find all words that start or end with x.
+```{r}
+str_view(words, "^x|x$", match = T)
+
+s.w.x<-str_detect(words, "^x")
+e.w.x<-str_detect(words, "x$")
+words[s.w.x|e.w.x]
+```
+
+Find all words that start with a vowel and end with a consonant.
+```{r}
+str_view(words, "^[aeiou].*[^aeiou]$", match = T)
+
+s.w.v<-str_detect(words, "^[aeiou]")
+e.w.c<-str_detect(words, "[^aeiou]$")
+words[s.w.v&e.w.c]
+```
+
+####14.4.3.1 Exercises
+- From the Harvard sentences data, extract:
+
+The first word from each sentence.
+```{r}
+str_extract(sentences, "[^ ]+")
+```
+
+All words ending in ing.
+```{r}
+has_ing <- str_subset(sentences, "[^ ]+ing[ .]")
+str_extract(has_ing, "[^ ]+ing[ .]")
+```
+
+
+####14.4.4.1 Exercises
+
+- Find all words that come after a “number” like “one”, “two”, “three” etc. Pull out both the number and the word.
+```{r}
+pattern<-"(one|two|three|four|five|six|seven|eight|nine|ten) +(\\S+)"
+s.w.p<-sentences[str_detect(sentences, pattern)]
+str_extract(s.w.p, pattern)
+```
+
+####14.4.5.1 Exercises
+
+- Replace all forward slashes in a string with backslashes. Remeber that if we want to have a literal backslash, we will need four backslashes to match one.
+```{r}
+s<-c("/a", "/b/", "c//")
+s.replaced<-(str_replace_all(s, "/", "\\\\"))
+writeLines(s.replaced)
+```
+
+- Implement a simple version of str_to_lower() using replace_all().
+```{r}
+s<-"aierjnRvEdAS"
+str_replace_all(s,c("R"="r", "E"="e", "A"="a", "S"="s"))
+```
+
+####14.4.6.1 Exercises
+
+- Split up a string like "apples, pears, and bananas" into individual components. Here I split x by ", and" or ",". 
+```{r}
+x<-"apples, pears, and bananas"
+str_split(x, ", and|,")
+```
+
+- What does splitting with an empty string ("") do? Experiment, and then read the documentation. 
+It splits the string into individual character.
+```{r}
+x<-"ay3nk%"
+str_split(x, "")
+```
+
+####14.5.1 Exercises
+
+- How would you find all strings containing \ with regex() vs. with fixed()? For `regex()`, we need four backslashes to match a literal backslash. But in `fixed()`, it allows us to avoid complex escaping. So we only need two backslashes to match a literal backslash. 
+```{r}
+s<-c("ad","a\\bc","dd\\cs")
+str_view(s,regex("\\\\"))
+str_view(s,fixed("\\"))
+```
+
+####10.6.1 Exercises
+
+- Find the stringi functions that:
+1. Count the number of words.   `stri_count_words()`
+2. Find duplicated strings.   `stri_duplicated()`
+3. Generate random text. 
+`stri_rand_lipsum()` generates (pseudo) lorem ipsum text. 
+`stri_rand_shuffle()` generates a (pseudo) random permutation of code points in each string.
+`stri_rand_strings()` generates (pseudo) random strings of desired lengths.
+
+- How do you control the language that stri_sort() uses for sorting?
+By specifying the locale argument to the opts_collator.
+
+###Topic 2: Writing functions
+This is a functions which has:
+Input: a data.frame that contains (at least) a life expectancy variable lifeExp and a variable for year
+Output: a vector of estimated parameters, from a quadratic regression of lifeExp on year
+```{r}
+quadratic_fit <- function(dat, offset = 1952) {
+  the_fit <- lm(lifeExp ~ poly(I(year - offset), 2), dat)
+  setNames(coef(the_fit), c("intercept", "beta_1", "beta_2"))
+}
+
+quadratic_fit(gapminder %>% filter(country == "Canada"))
+```
+
+This is a function
+
+
+
+
