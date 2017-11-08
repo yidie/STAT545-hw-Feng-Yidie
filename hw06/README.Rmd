@@ -1,5 +1,5 @@
 ### Navigation
-This is the folder for hw06 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw05/Factor_and_figure_management.md) to find my work on "Data Wrangling Wrap Up".
+This is the folder for hw06 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw06/Data_wrangling_wrap_up.md) to find my work on "Data Wrangling Wrap Up". But note that you need to download/clone to do the peer review. Because `str_view()` output cannot be shown properly on Github. Sorry for the inconvenience. Thanks for your time!
 
 ### Process Report
 - By working through the tutorial on character data, I learned more about strings in R.
