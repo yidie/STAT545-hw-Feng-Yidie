@@ -1,0 +1,8 @@
+### Navigation
+This is the folder for hw06 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw05/Factor_and_figure_management.md) to find my work on "Data Wrangling Wrap Up".
+
+### Process Report
+- By working through the tutorial on character data, I learned more about strings in R.
+- The various functions such as `str_detect()`, `str_subset()` etc. in stringr help with the handling of strings. And they all have names that are easy to understand. 
+- At first, I am confused about how regular expressions in strings work due to the matter of "escaping". But after doing the exercises and try out myself, I knid of see what is going on with all those backslashes.
+- Writing our own functions can be very helpful because it is generic, reusable and fast.  
