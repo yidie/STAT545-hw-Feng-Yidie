@@ -1,5 +1,5 @@
 ---
-title: "report"
+title: "Report"
 author: "Yidie Feng"
 date: "11/14/2017"
 output: 
@@ -8,8 +8,8 @@ output:
 ---
 ### Summary
 For this assignment, I did _remake_ to automate data analysis pipelines.
-- This is the (remake.yml)[] file which have all the targets and dependencies. And I explained every step in the file with comments.
-- This is the (code.R)[] file which contains all the functions/rules that will relate the targets together. And I explained every step in the file with comments.
+- This is the (remake.yml)[https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/remake.yml] file which have all the targets and dependencies. And I explained every step in the file with comments.
+- This is the (code.R)[https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/code.R] file which contains all the functions/rules that will relate the targets together. And I explained every step in the file with comments.
 - This is how it works: in remake.yml, we will call the functions defined in code.R to generate all the targets and automate the pipeline. Refer to those two files to see more detailed explanation.
 
 ### Processed Data
