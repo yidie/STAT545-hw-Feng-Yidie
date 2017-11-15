@@ -1,0 +1,31 @@
+---
+title: "report"
+author: "Yidie Feng"
+date: "11/14/2017"
+output: 
+  html_document: 
+    keep_md: yes
+---
+### Summary
+For this assignment, I did _remake_ to automate data analysis pipelines.
+- This is the (remake.yml)[] file which have all the targets and dependencies. And I explained every step in the file with comments.
+- This is the (code.R)[] file which contains all the functions/rules that will relate the targets together. And I explained every step in the file with comments.
+- This is how it works: in remake.yml, we will call the functions defined in code.R to generate all the targets and automate the pipeline. Refer to those two files to see more detailed explanation.
+
+### Processed Data
+This is what the processed gapminder data looks like.
+```{r}
+knitr::kable(head(read.csv("summary_dat.csv")))
+```
+
+### Figures
+
+![Fig 1: The trend of mean gdp weighted by population over time for different continent](figures/weighted_mean_gdp_by_continent.png)
+
+![Fig 2: The scatterplot of mean gdp weighted by population vs lifeExp for diffrent continent ](figures/weighted_mean_gdp_lifeExp.png)
+
+### Dependency Diagram
+`remake::diagram()` will generate the dependency diagram based on the `remake.yml` file, which is super convenient. From this diagram viewing backwards, we can see that our final product `report.html` depends on the two figures and `report.md`. And the two figures depend on `processed_gapminder_data`, which depends on `gapminder_df`, which depends on `gapminder.tsv`. In other words, we first download `gapminder.tsv` using the function `downl_tsv()`. Then we read it in and call it `gapminder_df`. Then we mutate `gapminder_df` to have `weighted_mean_gdp` using the function `process_data()`and call the mutated dataframe `processed_gapminder_data`. Then we creat two plots based on the `processed_gapminder_data` using `plot_gdp_year()` and `plot_gdp_lifeExp()` functions, which together with `report.md` will produce the final `report.html`.
+```{r, warning=FALSE, message=FALSE}
+remake::diagram(remake_file = "remake.yml")
+```

@@ -1,0 +1,15 @@
+---
+title: "README"
+author: "Yidie Feng"
+date: "11/13/2017"
+output: github_document
+---
+
+### Navigation
+This is the folder for hw07 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw06/Data_wrangling_wrap_up.md) to find my work on "Automating data analysis pipelines".
+
+### Process Report
+- All the explanations of the steps are wrriten down along with my work.
+- In class, I got very confused what make/remake does and how it helps with our data analysis. But this assignment gives me a chance to re-learn the stuff and get some practice.
+- This [remake tutorial](https://github.com/richfitz/remake) is very helpful. I worked through some of its examples. And I think remake is easier to understand than make. Because remake is R-focused and the syntax is easier to follow. While for make, I need to remeber all those "-o" "-e" etc.
+- I encountered problems like "Creating implicit target for nonexistant files"??????

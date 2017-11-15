@@ -1,0 +1,52 @@
+## These are the packages we need to use.
+packages:
+  - dplyr
+  - ggplot2
+  - rmarkdown
+
+## This is the file that has the code/functions/rules needed for remake.
+sources:
+  - code.R
+
+## Targets are things we produce throughout the pipeline.
+targets:
+  
+  ## "all" is the final output, here I will create a html report.
+  all:
+    depends: report.html
+  
+  ## This is the first step: download gapminder dataset and call it "gapminder.tsv". 
+  gapminder.tsv:
+    command: downl_tsv()
+    
+  ## Then read in the data. It takes gapminder.tsv from last step as input.
+  ## The output will be gapminder_df.
+  gapminder_df:
+    command: read.delim("gapminder.tsv")
+  
+  ## This step depends on gapminder_df which is the output from the last step.   
+  ## It generates the processed data called processed_gapminder_data, 
+  ## which has newly computed weighted mean gdp.  
+  processed_gapminder_data:
+    command: process_data(gapminder_df)
+  
+  ## Then we plot the data using the function plot_gdp_year() defined in the code.R file.
+  ## And it depends processed_gapminder_data from last step as input to plot.
+  figures/weighted_mean_gdp_by_continent.png:
+    command: plot_gdp_year(processed_gapminder_data)
+    plot: true
+  
+  ## We can also make a plot using the function plot_gdp_lifeExp() defined in the code.R file.
+  ## It depends on processed_gapminder_data from above as input to plot.
+  figures/weighted_mean_gdp_lifeExp.png:
+    command: plot_gdp_lifeExp(processed_gapminder_data)
+    plot: true
+  
+  ## Then we want to create the final report which depends on the two figures.
+  report.html:
+    depends:
+      - figures/weighted_mean_gdp_by_continent.png
+      - figures/weighted_mean_gdp_lifeExp.png
+    command: render("report.Rmd")
+    
+  
