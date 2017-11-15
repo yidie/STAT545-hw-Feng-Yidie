@@ -1,5 +1,10 @@
 ### Navigation
-This is the folder for hw07 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw07) to find my work on "Automating data analysis pipelines".
+- This is the folder for hw07 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw07) to find my work on "Automating data analysis pipelines".
+For this assignment, I did _remake_ to automate data analysis pipelines.
+- This is the [remake.yml](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/remake.yml) file which have all the targets and dependencies. And I explained every step in the file with comments.
+- This is the [code.R](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/code.R) file which contains all the functions/rules that will relate the targets together. And I explained every step in the file with comments.
+- The [report.html](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/report.html) cannot be shown properly on github. Please download/clone the repo to view it. Alternatively, you can check [report.Rmd](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/report.Rmd) but note that the output: table and dependency diagram cannot be shown there. So I manually took a screenshot of my diagram and put it there for the reader to see if they don't want to clone the repo. As for the table, the reader can view it [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw07/summary_dat.csv).
+
 
 ### Process Report
 - All the explanations of the steps are wrriten down along with my work.
