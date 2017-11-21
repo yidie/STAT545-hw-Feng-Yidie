@@ -1,4 +1,5 @@
-bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+library(shiny)
+library(shinyjs)
 
 ui <- fluidPage(
 	titlePanel("BC Liquor Store prices"),
@@ -30,7 +31,7 @@ ui <- fluidPage(
 			),
 			
 			#  Add a textOutput() to the UI.
-			h3(textOutput("summaryText")),
+			h2(textOutput("summaryText")),
 			
 			# Add download button.
 			downloadButton("download", "Download results")

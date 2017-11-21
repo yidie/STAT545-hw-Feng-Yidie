@@ -130,7 +130,7 @@ $(document).ready(function () {
 <div id="description" class="section level3">
 <h3>Description</h3>
 <ul>
-<li>This app is built upon <a href="http://stat545.com/shiny01_activity.html#final-shiny-app-code">this code</a> and <a href="https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/shiny_supp/2016/bcl-data.csv">BC liquor store dataset</a>. I choose to add new features to the app. My completed app can be found <a href>here</a>.</li>
+<li>This app is built upon <a href="http://stat545.com/shiny01_activity.html#final-shiny-app-code">this code</a> and <a href="https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/shiny_supp/2016/bcl-data.csv">BC liquor store dataset</a>. I choose to add new features to the app. My completed app can be found <a href="https://yidief.shinyapps.io/hw08/">here</a>.</li>
 <li>The basic app lets the user choose a price range, product type and country, and then generates a table of results and a histogram of alcohol content.</li>
 <li>New feature: add an option to sort the results table by price in ascending order.</li>
 <li>New feature: add an image of the BC Liquor Store brand label.</li>
@@ -149,6 +149,7 @@ $(document).ready(function () {
 <li>The hints in homework are really helpful. I just need to read the documentation of the functions and experiment to make it work.</li>
 <li>I had trouble showing the summary text at first because I am not sure how to incorporate something that will be updated into a string. Then I realized that I can use <code>paste0()</code> function to do this. It will convert my updated information to a string and then concatenate everthing together.</li>
 <li>Initially, <code>downloadHandler()</code> does not work. Then I looked at the examples in the documentation and found that <code>file</code> and <code>content</code> arguments are both functions. After I change them to functions, it works.</li>
+<li>When I first deploy my app to shiny.io, “country” select box cannot be shown. There is an error. I got some help in office hour and found that I have this line of code : <code>bcl &lt;- read.csv(&quot;bcl-data.csv&quot;, stringsAsFactors = FALSE)</code> in ui.R instead of server.R. It should be in server.R because that server.R needs to use this dataset. And remember ui and server are seperate. They cannot see each other. They speak with each other only through inputs and outputs.</li>
 </ul>
 </div>
 

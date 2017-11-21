@@ -2,6 +2,8 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
+bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+
 server <- function(input, output) {
 	output$countryOutput <- renderUI({
 		selectInput("countryInput", "Country",

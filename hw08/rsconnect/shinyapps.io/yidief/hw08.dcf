@@ -5,8 +5,8 @@ account: yidief
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 238232
-bundleId: 1087444
+bundleId: 1088677
 url: https://yidief.shinyapps.io/hw08/
-when: 1511252145.59453
+when: 1511295447.75091
 asMultiple: FALSE
 asStatic: FALSE
