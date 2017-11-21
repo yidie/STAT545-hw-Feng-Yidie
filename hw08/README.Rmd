@@ -2,15 +2,15 @@
 title: "README"
 author: "Yidie Feng"
 date: "11/20/2017"
-output: github_document
+output: html_document
 ---
 ### Navigation
-- This is the folder for hw07 in STAT545-hw-Feng-Yidie repo. You can go to [here]() to find my work on "Building Shiny apps".
-- []() contains the code for user interface,
-- []() contains the code for server.
+- This is the folder for hw08 in STAT545-hw-Feng-Yidie repo. You can go to [here](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw08) to find my work on "Building Shiny apps".
+- [ui.R](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw08/ui.R) contains the code for user interface,
+- [server.R](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw08/server.R) contains the code for server.
 
 ### Description
-- This app is built upon [this code]() and [BC liquor store dataset](). I choose to add new features to the app. My completed app can be found [here]().
+- This app is built upon [this code](http://stat545.com/shiny01_activity.html#final-shiny-app-code) and [BC liquor store dataset](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/shiny_supp/2016/bcl-data.csv). I choose to add new features to the app. My completed app can be found [here]().
 - The basic app lets the user choose a price range, product type and country, and then generates a table of results and a histogram of alcohol content.
 - New feature: add an option to sort the results table by price in ascending order.
 - New feature: add an image of the BC Liquor Store brand label.

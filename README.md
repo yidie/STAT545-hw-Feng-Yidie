@@ -7,6 +7,7 @@ This is the repository of Yidie Feng for STAT545 HW.
 - [HW05](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw05)
 - [HW06](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw06)
 - [HW07](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw07)
+- [HW08](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw08)
 
 ### Description about Myself
 My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics at UBC. And now I am a new Master student in Statistics.

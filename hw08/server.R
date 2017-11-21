@@ -17,9 +17,10 @@ server <- function(input, output) {
 		bcl %>%
 			filter(Price >= input$priceInput[1],
 				   Price <= input$priceInput[2],
-				   # replace == to %in% because typeInput now can be a list (multiple alcohol types).
+				   # replace == to %in% because typeInput now can be a list (multiple alcohol types)
 				   Type %in% input$typeInput,
-				   Country == input$countryInput)
+				   Country == input$countryInput
+			)
 	})
 	
 	output$coolplot <- renderPlot({

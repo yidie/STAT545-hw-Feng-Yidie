@@ -1,0 +1,12 @@
+name: hw08
+title:
+username:
+account: yidief
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 238232
+bundleId: 1087444
+url: https://yidief.shinyapps.io/hw08/
+when: 1511252145.59453
+asMultiple: FALSE
+asStatic: FALSE
