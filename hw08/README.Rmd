@@ -1,0 +1,30 @@
+---
+title: "README"
+author: "Yidie Feng"
+date: "11/20/2017"
+output: github_document
+---
+### Navigation
+- This is the folder for hw07 in STAT545-hw-Feng-Yidie repo. You can go to [here]() to find my work on "Building Shiny apps".
+- []() contains the code for user interface,
+- []() contains the code for server.
+
+### Description
+- This app is built upon [this code]() and [BC liquor store dataset](). I choose to add new features to the app. My completed app can be found [here]().
+- The basic app lets the user choose a price range, product type and country, and then generates a table of results and a histogram of alcohol content.
+- New feature: add an option to sort the results table by price in ascending order.
+- New feature: add an image of the BC Liquor Store brand label.
+- New feature: make the results table into an interactive table.
+- New feature: users can decide on the colours of the bars in the histogram.
+- New feature: place the plot and the table in separate tabs.
+- New feature: show the number of results found as a text like "We found xx options for you"
+- New feature: allow the user to download the results table as a `.csv` file.
+- New feature: allow the user to search for multiple alcohol types simultaneously.
+
+### Process Report
+- Shiny apps are really cool. This homework gives me a chance to explore more about Shiny.
+- The hints in homework are really helpful. I just need to read the documentation of the functions and experiment to make it work.
+- I had trouble showing the summary text at first because I am not sure how to incorporate something that will be updated into a string. Then I realized that I can use `paste0()` function to do this. It will convert my updated information to a string and then concatenate everthing together.
+- Initially, `downloadHandler()` does not work. Then I looked at the examples in the documentation and found that `file` and `content` arguments are both functions. After I change them to functions, it works.
+
+
