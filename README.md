@@ -8,12 +8,13 @@ This is the repository of Yidie Feng for STAT545 HW.
 - [HW06](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw06)
 - [HW07](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw07)
 - [HW08](https://github.com/yidie/STAT545-hw-Feng-Yidie/tree/master/hw08)
+- [HW09](https://github.com/yidie/Rpackage_foofactors)
 
 ### Description about Myself
 My name is Yidie Feng. I am from China. I got my Bachalor's degree in Statistics at UBC. And now I am a new Master student in Statistics.
 
 ### Photo of Myself
-<img src="IMG_9783.JPG" height="400px" width="400px" />
+<img src="IMG_9783.JPG" height="400px" width="500px" />
 
 ### My Goal for STAT 545
 * Apply what I have learned from other statistics courses
