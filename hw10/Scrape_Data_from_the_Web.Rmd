@@ -71,18 +71,13 @@ get_filmography <- function(link){
 ```
 
 Add in the 5th variable `Filmography` by using `get_filmography()` function to return the filmography of every actor/actress from their profile page.
-```{r}
+```{r, warning=FALSE}
 coco_df<-mutate(coco_df, Filmography=map_chr(ProfileLink, get_filmography))
 ```
 
-Save `coco_df` to file
+Save `coco_df` to file. Take a look at the [clean and tidy dataframe](https://github.com/yidie/STAT545-hw-Feng-Yidie/blob/master/hw10/coco.csv) I created.
 ```{r}
 write_csv(coco_df,"coco.csv")
-```
-
-Take a look at the clean and tidy dataframe I created.
-```{r}
-head(coco_df)
 ```
 
 Glimpse of `coco_df`
